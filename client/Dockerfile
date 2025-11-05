@@ -4,6 +4,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
+
+# Tăng heap size cho Node (2GB)
+ENV NODE_OPTIONS=--max-old-space-size=2048
+
 RUN npm run build
 
 FROM nginx:1.25-alpine
