@@ -5,13 +5,13 @@ FROM node:18
 WORKDIR /app
 
 # Copy file package.json và package-lock.json
-COPY ./server/package*.json ./
+COPY package*.json ./
 
 # Cài đặt dependencies
 RUN npm install
 
 # Copy toàn bộ code từ thư mục server vào container
-COPY ./server .
+COPY . .
 
 # Expose port
 EXPOSE 3001
